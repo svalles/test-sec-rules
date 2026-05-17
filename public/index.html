@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Security Rules</title>
+    <style>
+      :root { color-scheme: light dark; }
+      body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 760px; }
+      code, pre { background: rgba(127,127,127,.12); padding: .2rem .4rem; border-radius: 6px; }
+      pre { padding: .8rem; overflow: auto; }
+      .card { border: 1px solid rgba(127,127,127,.3); border-radius: 10px; padding: 1rem; margin: 1rem 0; }
+    </style>
+  </head>
+  <body>
+    <h1>Cloudflare Security Rules Lab</h1>
+    <p>Este sitio de prueba sirve para validar reglas de seguridad en Cloudflare (WAF/Rate Limiting/Custom Rules).</p>
+
+    <div class="card">
+      <h2>Endpoints sugeridos para pruebas</h2>
+      <ul>
+        <li><code>/</code> página principal</li>
+        <li><code>/login?user=admin</code> consulta con query string</li>
+        <li><code>/api/search?q=test</code> endpoint simulado para pruebas con payloads</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Ejemplos de requests para validar reglas</h2>
+      <pre>
+# SQLi en query
+curl "https://TU_DOMINIO/api/search?q=' OR 1=1 --"
+
+# XSS en query
+curl "https://TU_DOMINIO/login?user=%3Cscript%3Ealert(1)%3C/script%3E"
+
+# Path traversal
+curl "https://TU_DOMINIO/../../etc/passwd"
+      </pre>
+    </div>
+
+    <p><strong>Importante:</strong> usar solo en entorno de laboratorio/controlado.</p>
+  </body>
+</html>
