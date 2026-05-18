@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Laboratorio de Pruebas Cloudflare</title>
+    <style>
+        body { font-family: sans-serif; margin: 40px; background: #f4f4f9; }
+        .container { background: white; padding: 20px; border-radius: 8px; max-width: 500px; margin: auto; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        input[type="text"], input[type="password"] { width: 100%; padding: 10px; margin: 10px 0; }
+        button { background: #f38020; color: white; border: none; padding: 10px; width: 100%; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Hacker Sandbox - Login</h2>
+        <form action="/login-mock" method="POST">
+            <input type="text" name="username" placeholder="Usuario (Ej: admin)">
+            <input type="password" name="password" placeholder="Contraseña">
+            <button type="submit">Ingresar</button>
+        </form>
+        <hr>
+        <h2>Buscar Productos</h2>
+        <form action="/search-mock" method="GET">
+            <input type="text" name="query" placeholder="Buscar...">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+</body>
+</html>
